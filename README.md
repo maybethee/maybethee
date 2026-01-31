@@ -9,10 +9,9 @@ Other interests include:
 - 🎮 Rocket League
 - ⚫ Go (the abstract strategy board game)
 - 🎵 Music
-<!-- LASTFM_STATS_START -->
+<!-- lastfm -->
 
 
-<!-- LASTFM_STATS_END -->
 
 ### Languages
 
