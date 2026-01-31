@@ -1,33 +1,22 @@
-name: lastfm-to-markdown
+name: Update Last.fm Stats
 
 on:
   schedule:
-    - cron: '2 0 * * *'
+    # Runs every day at 12:00 AM UTC
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
-  lastfm:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: lastfm to markdown
-        uses: melipass/lastfm-to-markdown@v1.3.1
-        with:
-          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
-          LASTFM_USER: ${{ secrets.LASTFM_USER }}
-#         INCLUDE_LINK: true # Optional. Defaults is false. If you want to include the link to the album page, set this to true.
-#         IMAGE_COUNT: 6 # Optional. Defaults to 10. Feel free to remove this line if you want.
-      - name: commit changes
-        continue-on-error: true
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git commit -m "Updated last.fm's weekly chart" -a
+      - name: Checkout repository
+        uses: [actions/checkout@v4](https://github.com)
 
-      - name: push changes
-        continue-on-error: true
-        uses: ad-m/github-push-action@v0.6.0
+      - name: Update Last.fm albums in README
+        uses: [kevinglobal/lastfm-readme@v1](https://github.com)
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}\
-          branch: main
+          lastfm_username: tofu_u
+          lastfm_api_key: ${{ secrets.LASTFM_API_KEY }}
+          limit: 10
+          period: 7day 
