@@ -25,7 +25,7 @@ jobs:
           python-version: "3.10"
 
       - name: Execute python script
-        run: python ./lastfm.py
+        run: python .github/workflows/lastfm.py
 
       - name: commit changes
         continue-on-error: true
