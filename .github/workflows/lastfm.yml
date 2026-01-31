@@ -13,9 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update Last.fm Stats
-        uses: dxnter/last-fm-readme@v1
+        uses: dephraiim/last-fm-readme@v1
         with:
           lastfm_user: tofu_u
           lastfm_api_key: ${{ secrets.LASTFM_API_KEY }}
-          period: 7day
-          type: top_albums 
