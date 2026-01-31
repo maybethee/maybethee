@@ -43,7 +43,7 @@ def update_readme(images):
     lastfm_line = '<p align="center">'
     i = 0
     for img in images:
-        if (i < int(10)):
+        if (i < int(os.getenv('IMAGE_COUNT'))):
             if (requests.get(img[2]).status_code == 200):
                 if os.getenv('INCLUDE_LINK') == 'false':
                     lastfm_line += f'<img src="{img[2]}" title="{img[0]} - {img[1]}"> '
