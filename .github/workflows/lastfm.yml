@@ -1,38 +1,32 @@
-name: "lastfm to markdown"
-author: "melipass"
-description: "Adds your Last.fm Weekly Chart to your GitHub Profile or any repo with a README.md"
-inputs:
-  LASTFM_API_KEY:
-    description: "Last.fm API Key. Store it as a GitHub Secret."
-    required: true
-    default: LASTFM_API_KEY
+name: lastfm-to-markdown
 
-  LASTFM_USER:
-    description: "Last.fms user to get their weekly chart."
-    required: true
-    default: LASTFM_USER
+on:
+  schedule:
+    - cron: "2 0 * * *"
+  workflow_dispatch:
 
-  IMAGE_COUNT:
-    description: "How many album covers will appear."
-    required: false
-    default: "10"
-
-  INCLUDE_LINK:
-    description: "Include a link to the album on Last.fm."
-    required: false
-    default: false
-
-runs:
-  using: "composite"
-  steps:
-    - env:
-        LASTFM_API_KEY: ${{ inputs.LASTFM_API_KEY }}
-        LASTFM_USER: ${{ inputs.LASTFM_USER }}
-        IMAGE_COUNT: 10
-        INCLUDE_LINK: ${{ inputs.INCLUDE_LINK }}
-      run: python ./lastfm.py
-      shell: bash
-
-branding:
-  icon: "music"
-  color: "red"
+jobs:
+  lastfm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: lastfm to markdown
+        uses: ./action.yml
+        with:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USER: ${{ secrets.LASTFM_USER }}
+      #         INCLUDE_LINK: true # Optional. Defaults is false. If you want to include the link to the album page, set this to true.
+      #         IMAGE_COUNT: 6 # Optional. Defaults to 10. Feel free to remove this line if you want.
+      - name: commit changes
+        continue-on-error: true
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git commit -m "Updated last.fm's weekly chart" -a
+      - name: push changes
+        continue-on-error: true
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}\
+          branch: main
