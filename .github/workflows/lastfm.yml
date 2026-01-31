@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: [actions/checkout@v4](https://github.com)
+        uses: actions/checkout@v4
 
       - name: Update Last.fm albums in README
-        uses: [kevinglobal/lastfm-readme@v1](https://github.com)
+        uses: kevinglobal/lastfm-readme@v1
         with:
           lastfm_username: tofu_u
           lastfm_api_key: ${{ secrets.LASTFM_API_KEY }}
           limit: 10
-          period: 7day 
+          period: 7day
