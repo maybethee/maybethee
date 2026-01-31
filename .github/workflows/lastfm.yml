@@ -2,7 +2,6 @@ name: Update Last.fm Stats
 
 on:
   schedule:
-    # Runs every day at 12:00 AM UTC
     - cron: '0 0 * * *'
   workflow_dispatch:
 
@@ -13,10 +12,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Update Last.fm albums in README
-        uses: kevinglobal/lastfm-readme@v1
+      - name: Update Last.fm Stats
+        uses: dxnter/last-fm-readme@v1
         with:
-          lastfm_username: tofu_u
+          lastfm_user: tofu_u
           lastfm_api_key: ${{ secrets.LASTFM_API_KEY }}
-          limit: 10
           period: 7day
+          type: top_albums 
