@@ -31,5 +31,5 @@ I'm a self-taught developer with a background in publishing/editing.
 
 <h4 align="center">My top 8 albums this week, via last.fm</h4>
 <!-- lastfm -->
-<p align="center"><a href="https://www.last.fm/music/CFCF/Blowing+Up+The+Workshop+48"><img src="https://lastfm-img.freetls.fastly.net/i/u/174s/cdc3016b43e4e35bb0333fdf35f5f263.png" title="CFCF - Blowing Up The Workshop 48"></a> <a href="https://www.last.fm/music/Johannes+Brahms/Brahms+Greatest+Hits"><img src="https://lastfm-img.freetls.fastly.net/i/u/174s/e0f96997c6854dd79f71de2c01d1e6e3.jpg" title="Johannes Brahms - Brahms Greatest Hits"></a> <a href="https://www.last.fm/music/Jon+Hassell/Listening+to+Pictures"><img src="https://lastfm-img.freetls.fastly.net/i/u/174s/5bb8ec516b8f2c1e7a67612f44b73164.jpg" title="Jon Hassell - Listening to Pictures"></a> <a href="https://www.last.fm/music/Nightlife/fallback"><img src="https://lastfm-img.freetls.fastly.net/i/u/174s/0212108b4e0ab55d86318a759de128fb.png" title="Nightlife - fallback"></a> </p>
+<p align="center"></p>
 
