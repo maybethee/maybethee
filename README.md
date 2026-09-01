@@ -29,7 +29,6 @@ I'm a self-taught developer with a background in publishing/editing.
 - ⚫ Go (the abstract strategy board game)
 - 🎵 Music
 
-<h4 align="center">My top 8 albums this week, via last.fm</h4>
+<!-- <h4 align="center">My top 8 albums this week, via last.fm</h4> -->
 <!-- lastfm -->
-<p align="center"></p>
-
+<!-- <p align="center"></p> -->
